@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño e Ingeniería - Climatizar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        /* Estilos específicos para la Hero Section de Diseño */
+        #diseno-hero {
+            min-height: 70vh;
+            background: url('https://images.pexels.com/photos/6615284/pexels-photo-6615284.jpeg?_gl=1*6glizf*_ga*MTk2ODQ1MjE3My4xNzU5OTQwODUx*_ga_8JE65Q40S6*czE3NjExNjk5NDkkbzE1JGcxJHQxNzYxMTcwMDE1JGo1OSRsMCRoMA..') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative; 
+        }
+        #diseno-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1;
+        }
+        #diseno-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .text-shadow { 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Estilos para el scroll horizontal en las pestañas */
+        .nav-tabs-scrollable {
+            flex-wrap: nowrap; 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            scroll-behavior: smooth; 
+        }
+        .nav-tabs-scrollable::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-tabs-scrollable {
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+        }
+        .nav-tabs .nav-link {
+            white-space: nowrap; 
+        }
+
+        /* Estilos para las tarjetas de información y Carruseles */
+        .diseno-feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+        .diseno-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+        .carousel-item-design img {
+            height: 200px; /* Altura fija para imágenes dentro de carruseles */
+            object-fit: cover;
+            width: 100%;
+        }
+        .diseno-feature-card .card-body {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container d-flex justify-content-between align-items-center py-4">
+    <a class="navbar-brand" href="index.html">
+        <img src="images\LOGO CLIMATIZAR MEDIANO.png" alt="Climatizar" style="height: 80px;"> 
+    </a>
+
+    <form class="d-none d-md-flex mx-auto" role="search" onsubmit="performSearch(event)" style="max-width: 500px;">
+    <input class="form-control me-2" type="search" placeholder="Busca un servicio, ej: Mantenimiento" aria-label="Search" id="searchInput">
+    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+</form>
+
+    <div class="d-flex align-items-center">
+        <span class="text-muted me-3 d-none d-lg-inline"><i class="bi bi-geo-alt-fill text-primary me-1"></i> Colombia</span>
+        <a href="tel:+573144794045" class="text-dark me-2"><i class="bi bi-telephone-fill"></i></a>
+        <a href="contacto.html" class="text-dark"><i class="bi bi-info-circle-fill"></i></a>
+    </div>
+</div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm border-top">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+                <ul class="navbar-nav nav">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="diseno.html">Diseño</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <section id="diseno-hero" class="text-center text-white">
+        <div class="container">
+            <h1 class="display-2 fw-bold text-shadow">Ingeniería de Precisión para el Clima Perfecto</h1>
+            <p class="lead text-shadow col-lg-8 mx-auto">Nuestro proceso de diseño garantiza la eficiencia energética y el máximo confort desde el primer plano.</p>
+        </div>
+    </section>
+
+    <main class="container my-5">
+    
+    <div class="d-flex justify-content-center">
+        <ul class="nav nav-tabs nav-tabs-scrollable mb-4" id="disenoTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="cargas-tab" data-bs-toggle="tab" data-bs-target="#cargas" type="button" role="tab" aria-controls="cargas" aria-selected="true">Cálculo de Cargas Térmicas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="planos-tab" data-bs-toggle="tab" data-bs-target="#planos" type="button" role="tab" aria-controls="planos" aria-selected="false">Planos y Modelado BIM</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="consultoria-tab" data-bs-toggle="tab" data-bs-target="#consultoria" type="button" role="tab" aria-controls="consultoria" aria-selected="false">Consultoría Ambiental</button>
+            </li>
+             <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="ducteria-tab" data-bs-toggle="tab" data-bs-target="#ducteria" type="button" role="tab" aria-controls="ducteria" aria-selected="false">Diseño de Ductería</button>
+            </li>
+             <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="automatizacion-tab" data-bs-toggle="tab" data-bs-target="#automatizacion" type="button" role="tab" aria-controls="automatizacion" aria-selected="false">Automatización HVAC</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="disenoTabsContent">
+
+        <div class="tab-pane fade show active p-4" id="cargas" role="tabpanel" aria-labelledby="cargas-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">La Base de la Eficiencia: El Dimensionamiento Correcto</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm diseno-feature-card border-primary border-3">
+                        <div class="card-body text-center">
+                            <i class="bi bi-calculator-fill text-primary fs-1 mb-3"></i>
+                            <h5 class="card-title fw-bold">ASHRAE y Normativa</h5>
+                            <p class="card-text text-muted">Cálculo preciso de la carga térmica usando estándares internacionales para evitar errores de dimensionamiento.</p>
+                            <span class="badge bg-primary">Precisión Técnica</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm diseno-feature-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-thermometer-half text-info fs-1 mb-3"></i>
+                            <h5 class="card-title fw-bold">Análisis de Entorno</h5>
+                            <p class="card-text text-muted">Consideramos factores como la ubicación, la radiación solar, los materiales y la ocupación del edificio.</p>
+                            <span class="badge bg-info">Factores Externos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm diseno-feature-card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-file-earmark-check-fill text-success fs-1 mb-3"></i>
+                            <h5 class="card-title fw-bold">Ahorro Garantizado</h5>
+                            <p class="card-text text-muted">Dimensionar correctamente minimiza el consumo energético y extiende la vida útil de los equipos.</p>
+                            <span class="badge bg-success">Máxima Eficiencia</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane fade p-4" id="planos" role="tabpanel" aria-labelledby="planos-tab">
+            
+            <div class="container">
+                <h2 class="text-center display-5 fw-bold mb-3">Modelado e Ingeniería de Precisión</h2>
+                <p class="text-center lead mb-5">Deslice para ver nuestra galería completa de planos ejecutivos, modelos BIM y visualizaciones 3D.</p>
+            </div>
+            
+            <div class="scroll-horizontal-gallery-full-width">
+            
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/plano AUTOCAD 1.png" alt="Vista 3D de red de ductería">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Ductería BIM 3D</h5>
+                        <p class="card-text text-muted small">Diseño optimizado de rutas de ductería en Revit para evitar colisiones.</p>
+                        <span class="badge bg-primary">BIM 3D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/plano AUTOCAD 2.png" alt="Plano de techo con sistemas">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Modelo Integrado Edificio</h5>
+                        <p class="card-text text-muted small">Plano general de techo y cubiertas con sistemas HVAC integrados.</p>
+                        <span class="badge bg-primary">BIM 3D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/plano AUTOCAD 3.png" alt="Vista detallada de uniones">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Modelado de Tuberías y Uniones</h5>
+                        <p class="card-text text-muted small">Detalle de uniones, soportes y pases estructurales para ejecución precisa.</p>
+                        <span class="badge bg-primary">BIM 3D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/CLIMATIZAR TORRE 33.png" alt="Plano CAD de detalles de equipos">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Plano Ejecutivo CAD - Torre 33</h5>
+                        <p class="card-text text-muted small">Documento detallado de instalaciones listo para ejecución en obra.</p>
+                        <span class="badge bg-warning">CAD / 2D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/clinica vital.png" alt="Diagrama de flujo de sistema hidrónico">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Diagrama Sistema Hidrónico</h5>
+                        <p class="card-text text-muted small">Diagrama de flujo completo del sistema hidrónico y la ubicación de equipos.</p>
+                        <span class="badge bg-warning">CAD / 2D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/hospital cumarivo vichada.png" alt="Detalle de montaje de Chiller">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Detalle de Montaje Hospitalario</h5>
+                        <p class="card-text text-muted small">Plano ejecutivo con detalles de montaje de Chiller y torres de enfriamiento.</p>
+                        <span class="badge bg-warning">CAD / 2D</span>
+                    </div>
+                </div>
+                
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/archivo municipal puerto gaitan.png" alt="Renderizado de lobby con terminales de aire">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Render - Archivo Municipal</h5>
+                        <p class="card-text text-muted small">Visualización 3D de la integración de terminales de aire en espacios interiores.</p>
+                        <span class="badge bg-success">Render / 3D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/diseño autocad 4.png" alt="Renderizado de fachada con equipos ocultos">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Render - Fachada (Equipos Ocultos)</h5>
+                        <p class="card-text text-muted small">Vista 3D que muestra cómo se ocultan los equipos de climatización en la fachada.</p>
+                        <span class="badge bg-success">Render / 3D</span>
+                    </div>
+                </div>
+
+                <div class="card shadow-lg diseno-feature-card">
+                    <div class="bim-aspect-ratio-4-3">
+                        <img src="images/plano autocad 5.png" alt="Vista nocturna del edificio con climatización">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Render - Vista Nocturna</h5>
+                        <p class="card-text text-muted small">Visualización nocturna del proyecto con la iluminación y diseño de climatización.</p>
+                        <span class="badge bg-success">Render / 3D</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto text-center">
+                    <hr class="mb-4">
+                    <h2 class="display-5 fw-bold text-primary mb-3">¿Solo Necesitas el Diseño?</h2>
+                    <p class="lead text-dark">
+                        Ofrecemos el servicio de **Estudio de Planificación y Creación de Planos** de forma independiente. 
+                        Ideal si buscas un diseño de HVAC optimizado y certificado para licitar o ejecutar con otro contratista.
+                    </p>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-center mt-4">
+                         <a href="contacto.html" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Solicitar un Estudio de Planificación <i class="bi bi-arrow-right-short"></i></a>
+                         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Conocer Precios <i class="bi bi-currency-dollar"></i></button>
+                    </div>
+
+                    <ul class="list-unstyled d-flex justify-content-center mt-3 small text-muted">
+                        <li class="mx-3"><i class="bi bi-check-circle-fill text-success me-1"></i> Planos As-Built</li>
+                        <li class="mx-3"><i class="bi bi-check-circle-fill text-success me-1"></i> Auditoría de Diseño Existente</li>
+                        <li class="mx-3"><i class="bi bi-check-circle-fill text-success me-1"></i> Cálculo de Cargas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade p-4" id="consultoria" role="tabpanel" aria-labelledby="consultoria-tab">
+             <h3 class="display-6 fw-bold mb-4 text-center">Sostenibilidad y Cumplimiento Normativo</h3>
+             <div class="row row-cols-1 row-cols-md-3 g-4">
+                 
+                 <div class="col">
+                     <div class="card h-100 shadow-sm diseno-feature-card">
+                         <div class="card-body text-center">
+                             <i class="bi bi-tree-fill text-success fs-1 mb-3"></i>
+                             <h5 class="card-title fw-bold">Refrigerantes Ecológicos</h5>
+                             <p class="card-text text-muted">Asesoría en la selección de equipos con refrigerantes de bajo GWP para reducir la huella de carbono.</p>
+                             <span class="badge bg-success">Bajo GWP</span>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="col">
+                     <div class="card h-100 shadow-sm diseno-feature-card">
+                         <div class="card-body text-center">
+                             <i class="bi bi-award-fill text-warning fs-1 mb-3"></i>
+                             <h5 class="card-title fw-bold">Certificaciones Verdes</h5>
+                             <p class="card-text text-muted">Apoyo para obtener certificaciones LEED, EDGE u otras que valorizan tu propiedad.</p>
+                             <span class="badge bg-warning">Valor Agregado</span>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="col">
+                     <div class="card h-100 shadow-sm diseno-feature-card">
+                         <div class="card-body text-center">
+                             <i class="bi bi-bank2 text-primary fs-1 mb-3"></i>
+                             <h5 class="card-title fw-bold">Incentivos Fiscales</h5>
+                             <p class="card-text text-muted">Información sobre beneficios e incentivos gubernamentales por la adopción de tecnologías eficientes.</p>
+                             <span class="badge bg-primary">Beneficios Económicos</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+        </div>
+        <div class="tab-pane fade p-4" id="ducteria" role="tabpanel" aria-labelledby="ducteria-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Flujo de Aire Óptimo y Silencioso</h3>
+            <p class="lead text-center">Un buen diseño de ductería garantiza que el aire llegue de manera uniforme, con la temperatura y el caudal exactos, minimizando el ruido.</p>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                <div class="col">
+                    <div class="card h-100 shadow-sm p-3">
+                        <div class="card-body">
+                            <h5 class="fw-bold"><i class="bi bi-graph-up text-primary me-2"></i> Optimización de Caudales</h5>
+                            <p class="text-muted">Diseño basado en el método de recuperación estática para asegurar una distribución equitativa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm p-3">
+                        <div class="card-body">
+                            <h5 class="fw-bold"><i class="bi bi-volume-mute-fill text-secondary me-2"></i> Ingeniería Acústica</h5>
+                            <p class="text-muted">Uso de atenuadores de sonido y velocidad controlada para mantener el ruido por debajo de los niveles NC (Noise Criteria) requeridos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade p-4" id="automatizacion" role="tabpanel" aria-labelledby="automatizacion-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Control Inteligente para Máximo Confort</h3>
+            <p class="lead text-center">Integramos tu sistema HVAC a sistemas de gestión de edificios (BMS) para control remoto, diagnóstico de fallas y reportes de consumo.</p>
+            <div class="alert alert-success mt-4">
+                <i class="bi bi-lightbulb-fill fs-5 me-2"></i> **El futuro es inteligente:** La automatización reduce hasta un **30%** el consumo de energía al adaptar el clima a la ocupación real del edificio.
+            </div>
+        </div>
+        </div>
+</main>
+
+    <footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="search.js"></script>
+    <a 
+    href="https://wa.me/573144794045?text=Hola%2C%20me%20gustaría%20solicitar%20una%20cotización%20de%20climatización." 
+    class="whatsapp-float" 
+    target="_blank"
+>
+    <i class="bi bi-whatsapp"></i>
+</a>
+</body>
+</html>

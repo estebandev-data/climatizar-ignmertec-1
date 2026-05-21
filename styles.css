@@ -1,41 +1,67 @@
-/* ======== VARIABLES Y ESTILOS GLOBALES ======== */
+/* ========================================= */
+/* ESTILOS GLOBALES Y TIPOGRAFÍA */
+/* ========================================= */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+/* Custom Primary Color (Opcional: Si quieres un color diferente al azul por defecto de Bootstrap) */
 :root {
-    --bs-primary: #0d6efd; 
-    --bs-secondary: #6c757d; 
-    --bs-light: #f8f9fa;
-    --font-family-sans-serif: 'Montserrat', sans-serif;
-}
-body { font-family: var(--font-family-sans-serif); }
-h1, h2, h3, h4, h5, h6 { font-weight: 700; }
-.btn {
-    border-radius: 50px;
-    padding: 10px 25px;
-    font-weight: 600;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --bs-primary: #007bff; /* Manteniendo el azul de ejemplo por consistencia */
 }
 
-/* ======== HEADER / NAVBAR ======== */
+/* ========================================= */
+/* ENCABEZADO Y NAVEGACIÓN */
+/* ========================================= */
+
+.navbar-brand img {
+    max-height: 85px;
+    width: auto;
+}
+
+/* Barra de Búsqueda */
 .search-form {
-    width: 450px;
     border: 1px solid #ced4da;
-    border-radius: 50px;
-    padding: 2px 5px;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    max-width: 400px;
+    margin: 0 auto;
 }
-.search-form .form-control { border: none; border-radius: 50px; }
-.search-form .form-control:focus { box-shadow: none; }
-.search-form .btn { color: var(--bs-primary); background: none; border: none; padding: 5px 15px; }
-.search-form .btn:hover { transform: none; box-shadow: none; color: #0b5ed7; }
 
-/* ======== ESTILOS CARRUSEL ======== */
+.search-form .form-control {
+    border: none;
+    box-shadow: none;
+}
+
+.search-form .btn {
+    border-radius: 0;
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-left: 1px solid #ced4da;
+}
+
+/* Navegación Principal */
+.navbar-nav .nav-link {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--bs-primary) !important;
+}
+
+/* ========================================= */
+/* CARRUSEL Y SECCIONES PRINCIPALES */
+/* ========================================= */
+
 .carousel-item {
     height: 70vh; 
     min-height: 400px;
-    display: flex; 
-    align-items: center;
+    background-color: #000; /* Fondo de seguridad */
 }
 
 .carousel-caption-overlay {
@@ -52,44 +78,407 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 }
 
 .icon-feature i {
-    color: var(--bs-primary); 
-    text-shadow: 0 0 10px rgba(13, 110, 253, 0.8); 
-    transition: color 0.3s;
-}
-
-.icon-feature h5 {
-    color: #fff; 
-}
-
-
-/* ======== NUEVOS ESTILOS PARA TARJETAS DE SERVICIO ======== */
-.service-box-horizontal {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-}
-.service-box-horizontal:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-.service-box-horizontal .service-icon {
-    font-size: 3rem; 
     color: var(--bs-primary);
-    margin-right: 1.5rem;
+    font-size: 3rem;
+    transition: transform 0.3s ease;
 }
 
-/* ======== ANIMACIÓN DE SCROLL ======== */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.icon-feature:hover i {
+    transform: scale(1.1);
 }
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+
+/* Sección de Servicios */
+.service-box-horizontal {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--bs-primary) !important;
+}
+
+.service-box-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Sección Sobre Nosotros */
+.text-justify {
+    text-align: justify;
+}
+
+/* ========================================= */
+/* ESTILOS DE SCROLL HORIZONTAL (PROYECTOS Y DISEÑO) */
+/* ========================================= */
+
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: scroll; 
+    gap: 20px; 
+    padding-bottom: 20px; /* Espacio para la barra de scroll */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* Fija el ancho de las tarjetas de scroll */
+.scroll-card {
+    min-width: 350px; 
+    max-width: 350px;
+    flex-shrink: 0; /* Evita que se encojan */
+}
+
+/* Estilo de la barra de scroll (Webkit browsers como Chrome/Safari) */
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #ced4da; 
+    border-radius: 10px;
+}
+
+/* Estilos de las Tarjetas (Usadas en Proyectos, Diseño y ROI) */
+.project-card {
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+    border-bottom: 4px solid var(--bs-primary); /* Estilo por defecto */
+}
+.project-card:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15) !important; 
+}
+
+.project-image-thumb {
+    height: 250px; 
+    object-fit: cover;
+}
+
+.project-details {
+    border-top: 1px dashed #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* ========================================= */
+/* SECCIÓN DE CONTACTO */
+/* ========================================= */
+
+.contact-info li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--bs-primary);
+}
+
+/* Asegura que el mapa se vea correctamente dentro del ratio-4x3 */
+#contacto .ratio iframe {
+    border: 1px solid #ddd;
+}
+
+/* ======================================================= */
+/* ESTILOS ESPECÍFICOS PARA LA PÁGINA "NOSOTROS" */
+/* ======================================================= */
+
+/* 1. Estilos para el Carrusel de Pantalla Completa */
+#nosotros-slider {
+    min-height: 100vh; /* Altura mínima de la vista completa */
+}
+
+#nosotros-slider .carousel-item {
+    min-height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+    display: flex;
+    align-items: center; 
+}
+
+/* Capa semitransparente para mejorar el contraste del texto en el carrusel */
+.carousel-caption-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.carousel-caption-overlay .container {
+    z-index: 2; 
+}
+
+/* 2. Estilos para las Pestañas (Tabs) */
+#nosotrosTabs .nav-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #495057; 
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid transparent; 
+    margin: 0 5px; 
+    transition: all 0.3s ease;
+}
+
+#nosotrosTabs .nav-link.active {
+    color: var(--bs-primary, #0d6efd); /* Color primario de tu tema */
+    background-color: transparent; 
+    border-color: var(--bs-primary, #0d6efd); 
+}
+
+/* 3. Estilos para el Equipo y Galería */
+/* Fotos de perfil circulares con borde */
+.foto-perfil {
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+    border: 5px solid var(--bs-primary, #0d6efd); 
+}
+
+/* Estilo para las imágenes de la galería (efecto hover) */
+.galeria-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: cover;
+    width: 100%;
+    height: 300px; /* Altura fija para uniformidad */
+    border-radius: 0.5rem; /* Pequeño radio para suavizar esquinas */
+}
+
+.galeria-item:hover {
+    transform: scale(1.03); 
+    opacity: 0.9; 
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 4. Media Query para ajuste en móviles */
+@media (max-width: 768px) {
+    #nosotros-slider .display-3 {
+        font-size: 2.5rem;
+    }
+    /* Reduce el padding en el contenido de las pestañas en móviles */
+    .tab-pane {
+        padding: 1rem !important;
+    }
+}
+/* Estilo general para las Hero Sections de las nuevas páginas */
+#servicios-hero, #proyectos-hero, #diseno-hero {
+    min-height: 70vh;
+    /* Asegúrate de añadir las reglas de background: url(...) en el HTML o aquí */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+    display: flex;
+    align-items: center; 
+}
+
+/* Sombra de texto para mejorar la legibilidad del texto blanco en imágenes oscuras */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos de Pestañas (Recomendado tener estos de la respuesta anterior) */
+/*
+#serviciosTabs .nav-link, #proyectosTabs .nav-link, #disenoTabs .nav-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #495057; 
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid transparent; 
+}
+#serviciosTabs .nav-link.active, #proyectosTabs .nav-link.active, #disenoTabs .nav-link.active {
+    color: var(--bs-primary, #0d6efd);
+    background-color: transparent; 
+    border-color: var(--bs-primary, #0d6efd); 
+}
+*/
+/* ======================================================= */
+/* ESTILOS DE BARRA SUPERIOR (HEADER UNIFICADO) */
+/* ======================================================= */
+
+/* Contenedor del logo, buscador y contacto */
+header .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Estilo para el logo */
+header .navbar-brand img {
+    height: 40px; /* Tamaño del logo de Climatizar */
+    margin-right: 15px;
+}
+
+/* Estilo para el buscador (lo mantiene centrado en el escritorio) */
+header form[role="search"] {
+    max-width: 450px; /* Ancho máximo para el campo de búsqueda */
+    width: 100%;
+}
+
+/* Ocultar el botón del menú en escritorio para que la barra se vea limpia */
+header .navbar-toggler {
+    /* Mantenemos el botón del menú en la nav inferior */
+    display: none; 
+}
+
+/* Color del texto del enlace activo en el menú inferior */
+.navbar-nav .nav-link.active {
+    color: var(--bs-primary, #0d6efd) !important; 
+    border-bottom: 2px solid var(--bs-primary, #0d6efd);
+}
+
+/* Espacio entre los elementos del menú */
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+/* Asegurar que el texto de Contacto/Ubicación se vea bien */
+.text-dark {
+    color: #212529 !important;
+}
+.text-primary {
+    color: #0d6efd !important;
+}
+
+/* ======================================================= */
+/* AJUSTES RESPONSIVOS (PARA MÓVILES) */
+/* ======================================================= */
+
+@media (max-width: 991.98px) {
+    /* Navbar Toggler (botón del menú) en la versión móvil (visible) */
+    header .navbar-toggler {
+        display: block; 
+    }
+
+    /* Ocultar el texto de la ubicación y el buscador en pantallas pequeñas */
+    header .d-none.d-lg-inline {
+        display: none !important;
+    }
+    header .d-none.d-md-flex {
+        display: none !important;
+    }
+
+    /* Centrar la navegación en móvil */
+    header .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+    header .navbar-nav .nav-item {
+        margin: 5px 0; /* Más espacio vertical entre enlaces */
+    }
+}
+/* ======================================================= */
+/* ESTILOS HERO SECTION/CARRUSEL (PARA UNIFICAR DISEÑO) */
+/* ======================================================= */
+
+/* Asegura la altura mínima de los carruseles.
+   IMPORTANTE: Ajustar si ya tienes un selector similar. */
+#servicios-slider, 
+#proyectos-slider, /* Para cuando los implementes */
+#diseno-slider {  /* Para cuando los implementes */
+    min-height: 80vh; /* Altura de la vista (80% de la ventana) */
+}
+
+/* Estilos para el elemento activo del carrusel */
+#servicios-slider .carousel-item.active {
+    min-height: 80vh; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+/* Capa semitransparente (overlay) para mejorar el contraste del texto */
+.carousel-caption-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Sombra oscura para el texto */
+    z-index: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Sombra de texto para mejorar legibilidad sobre la imagen */
+.text-shadow {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Ajuste del botón 'Ver Categorías' para que apunte a las pestañas */
+#servicios-slider .btn {
+    margin-top: 20px;
+}
+/* Estilo para el botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px; /* Distancia desde la parte inferior */
+    right: 40px; /* Distancia desde la parte derecha */
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 40px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E; /* Oscurece un poco al pasar el mouse */
+    color: #FFF; /* Mantiene el color blanco en el icono */
+}
+
+/* Ajuste para el icono */
+.whatsapp-float i {
+    margin-top: 15px;
+}
+/* CLASES PARA EL SCROLL HORIZONTAL DE ANCHO COMPLETO */
+.scroll-horizontal-gallery-full-width {
+    display: flex; 
+    flex-wrap: nowrap; /* Evita que los elementos salten a la siguiente línea */
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    padding: 0 50px 20px 50px; /* Relleno en los lados y abajo para el scrollbar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+}
+
+/* Estilo de cada tarjeta dentro del contenedor con scroll */
+.scroll-horizontal-gallery-full-width .card {
+    flex: 0 0 auto; /* No permite que la tarjeta se encoja ni se estire */
+    width: 350px; /* Ancho fijo de la tarjeta (ajustado para ser más grande) */
+    margin-right: 20px; /* Espacio entre tarjetas */
+    border: none; /* Opcional: Quita el borde de la tarjeta si quieres un look más minimalista */
+}
+
+/* CLASES PARA ASPECT RATIO 4:3 (Uniformidad de Imagen) */
+.bim-aspect-ratio-4-3 {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 75% del ancho = Proporción 4:3 */
+    overflow: hidden;
+    background-color: white; /* Evita ver el fondo negro */
+}
+
+.bim-aspect-ratio-4-3 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena el espacio 4:3, recortando si es necesario */
+    object-position: center; /* Centra el recorte */
+    display: block;
 }

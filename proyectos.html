@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Climatizar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        /* Estilos específicos para la Hero Section de Proyectos */
+        #proyectos-hero {
+            min-height: 70vh;
+            background: url('https://images.pexels.com/photos/2539462/pexels-photo-2539462.jpeg?_gl=1*1gpr6jf*_ga*MTk2ODQ1MjE3My4xNzU5OTQwODUx*_ga_8JE65Q40S6*czE3NjExNjk5NDkkbzE1JGcxJHQxNzYxMTcwNDEzJGo1JGwwJGgw') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative; /* Necesario para el overlay */
+        }
+        #proyectos-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Oscurecer ligeramente */
+            z-index: 1;
+        }
+        #proyectos-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Estilos para las tarjetas de proyecto */
+        .proyecto-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura dentro de la fila */
+            display: flex;
+            flex-direction: column;
+        }
+        .proyecto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+        .proyecto-card .card-img-top { /* Ahora aplicamos a todas las imágenes de tarjeta */
+            height: 200px; /* Altura fija para todas las imágenes de proyectos */
+            object-fit: cover; /* Recorta la imagen para que cubra el área sin distorsionarse */
+            width: 100%;
+        }
+        .proyecto-card .card-body {
+            flex-grow: 1; /* Permite que el body ocupe el espacio restante */
+            display: flex;
+            flex-direction: column;
+        }
+        .proyecto-card .card-text {
+            flex-grow: 1; /* Permite que el texto ocupe espacio y empuje el badge abajo */
+        }
+
+        /* Estilos para el scroll horizontal en las pestañas */
+        .nav-tabs-scrollable {
+            flex-wrap: nowrap; /* Evita que las pestañas salten a la siguiente línea */
+            overflow-x: auto; /* Habilita el scroll horizontal */
+            -webkit-overflow-scrolling: touch; /* Mejora el scroll en dispositivos táctiles */
+            scroll-behavior: smooth; /* Scroll suave */
+        }
+        /* Opcional: Ocultar la barra de scroll en algunos navegadores */
+        .nav-tabs-scrollable::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-tabs-scrollable {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .nav-tabs .nav-link {
+            white-space: nowrap; /* Evita que el texto de la pestaña se rompa en varias líneas */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container d-flex justify-content-between align-items-center py-4">
+    <a class="navbar-brand" href="index.html">
+        <img src="images\LOGO CLIMATIZAR MEDIANO.png" alt="Climatizar" style="height: 80px;"> 
+    </a>
+
+    <form class="d-none d-md-flex mx-auto" role="search" onsubmit="performSearch(event)" style="max-width: 500px;">
+    <input class="form-control me-2" type="search" placeholder="Busca un servicio, ej: Mantenimiento" aria-label="Search" id="searchInput">
+    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+</form>
+
+    <div class="d-flex align-items-center">
+        <span class="text-muted me-3 d-none d-lg-inline"><i class="bi bi-geo-alt-fill text-primary me-1"></i> Colombia</span>
+        <a href="tel:+573144794045" class="text-dark me-2"><i class="bi bi-telephone-fill"></i></a>
+        <a href="contacto.html" class="text-dark"><i class="bi bi-info-circle-fill"></i></a>
+    </div>
+</div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm border-top">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+                <ul class="navbar-nav nav">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="proyectos.html">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="diseno.html">Diseño</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="proyectos-hero" class="text-center text-white">
+    <div class="container">
+        <h1 class="display-2 fw-bold text-shadow">Nuestro Portafolio de Éxito</h1>
+        <p class="lead text-shadow col-lg-8 mx-auto">La excelencia de nuestra ingeniería se ve reflejada en cada espacio que climatizamos.</p>
+    </div>
+</section>
+
+<main class="container my-5">
+    
+    <div class="d-flex justify-content-center">
+        <ul class="nav nav-tabs nav-tabs-scrollable mb-4" id="proyectosTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="comercial-tab" data-bs-toggle="tab" data-bs-target="#comercial" type="button" role="tab" aria-controls="comercial" aria-selected="true">Comercial y Oficinas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="residencial-tab" data-bs-toggle="tab" data-bs-target="#residencial" type="button" role="tab" aria-controls="residencial" aria-selected="false">Residencial de Lujo</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="industrial-tab" data-bs-toggle="tab" data-bs-target="#industrial" type="button" role="tab" aria-controls="industrial" aria-selected="false">Industrial y Data Centers</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="hospitalario-tab" data-bs-toggle="tab" data-bs-target="#hospitalario" type="button" role="tab" aria-controls="hospitalario" aria-selected="false">Hospitalario y Clínicas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="mantenimiento-tab" data-bs-toggle="tab" data-bs-target="#mantenimiento" type="button" role="tab" aria-controls="mantenimiento" aria-selected="false">Contratos de Mantenimiento</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="proyectosTabsContent">
+
+        <div class="tab-pane fade show active p-4" id="comercial" role="tabpanel" aria-labelledby="comercial-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Espacios que Inspiran Productividad</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/casino climatizar.png" class="card-img-top" alt="Vista del lobby con aire acondicionado">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Torre Empresarial Alpha</h5>
+                            <p class="card-text text-muted">Instalación de sistema VRF centralizado para 15 pisos de oficinas con eficiencia Zonal.</p>
+                            <span class="badge bg-primary">VRF System</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/edificio hotel estelar.png" class="card-img-top" alt="Tienda comercial con aire acondicionado">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Tienda de Retail Central</h5>
+                            <p class="card-text text-muted">Instalación de unidades paquete con control de humedad y renovación de aire para gran afluencia.</p>
+                            <span class="badge bg-info">Unidades Paquete</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/clinica vital.png" class="card-img-top" alt="Sala de reuniones con climatización discreta">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Coworking Innovación</h5>
+                            <p class="card-text text-muted">Sistema multisplit discreto y silencioso en espacios compartidos para máximo confort.</p>
+                            <span class="badge bg-secondary">Multisplit</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="tab-pane fade p-4" id="residencial" role="tabpanel" aria-labelledby="residencial-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Confort Discreto, Silencioso y Personalizado</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/plano hospital san juan de dios.png" class="card-img-top" alt="Sala de estar de residencia de lujo">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Residencia 'El Roble'</h5>
+                            <p class="card-text text-muted">Sistema multisplit oculto por ductos con termostatos inteligentes en cada habitación.</p>
+                            <span class="badge bg-success">Sistema por Ductos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/CLIMATIZAR TORRE 33.png" class="card-img-top" alt="Vista exterior de un penthouse">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Apartamento Penthouse Vista</h5>
+                            <p class="card-text text-muted">Instalación de Mini-Splits estéticos y silenciosos con integración a domótica central.</p>
+                            <span class="badge bg-secondary">Domótica Integrada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/edificio hotel estelar.png" class="card-img-top" alt="Casa moderna con salida de aire discreta">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Vivienda Campestre Armonía</h5>
+                            <p class="card-text text-muted">Climatización geotérmica para máxima sostenibilidad y mínimo impacto visual.</p>
+                            <span class="badge bg-success">Climatización Geotérmica</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane fade p-4" id="industrial" role="tabpanel" aria-labelledby="industrial-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Climatización de Precisión y Misión Crítica</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/bancolombia bucaramanga.png" class="card-img-top" alt="Interior de un data center">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Data Center Regional</h5>
+                            <p class="card-text text-muted">Diseño e instalación de Chillers de alta capacidad y sistemas de enfriamiento redundantes 24/7.</p>
+                            <span class="badge bg-danger">Chillers Redundantes</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/edificio marta dussan.png" class="card-img-top" alt="Interior de planta de procesamiento de alimentos">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Planta de Procesamiento Omega</h5>
+                            <p class="card-text text-muted">Sistemas de ventilación y extracción de aire a gran escala para cumplir con normativas de inocuidad.</p>
+                            <span class="badge bg-warning">Ventilación Industrial</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/bancolombia sucursar agua azul.png" class="card-img-top" alt="Almacén logístico">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Centro Logístico Metropolitano</h5>
+                            <p class="card-text text-muted">Implementación de Chillers con enfriamiento por evaporación para optimizar el consumo eléctrico.</p>
+                            <span class="badge bg-info">Eficiencia Energética</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="tab-pane fade p-4" id="hospitalario" role="tabpanel" aria-labelledby="hospitalario-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Ambientes Asépticos y Controlados</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/unidad odontologica hospital dept villavicencio.png" class="card-img-top" alt="Interior de un quirófano con sistemas HVAC">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Sala de Cirugía de Alta Complejidad</h5>
+                            <p class="card-text text-muted">Diseño de sistemas de presión positiva con filtración HEPA para cumplir con normas de bioseguridad.</p>
+                            <span class="badge bg-danger">Filtración HEPA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/imagenes diagnosticas del llano.png" class="card-img-top" alt="Laboratorio de investigación">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Laboratorio Farmacéutico Beta</h5>
+                            <p class="card-text text-muted">Climatización de precisión para control estricto de temperatura y humedad para reactivos sensibles.</p>
+                            <span class="badge bg-warning">Control de Humedad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/clinica cirugia ocular villavicencio.png" class="card-img-top" alt="Recepción de una clínica">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Clínica Odontológica Central</h5>
+                            <p class="card-text text-muted">Sistema HVAC zonificado con ventilación superior y purificación del aire en consultorios.</p>
+                            <span class="badge bg-primary">Purificación de Aire</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane fade p-4" id="mantenimiento" role="tabpanel" aria-labelledby="mantenimiento-tab">
+            <h3 class="display-6 fw-bold mb-4 text-center">Compromiso a Largo Plazo con la Eficiencia</h3>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/CLIMATIZAR TORRE 33.png" class="card-img-top" alt="Hotel de lujo">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Hotel Boutique 'El Paraíso'</h5>
+                            <p class="card-text text-muted">Contrato de Mantenimiento Preventivo integral de 4 años para 80 unidades fan-coil.</p>
+                            <span class="badge bg-success">Mantenimiento Preventivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/fiscalia general de la nacion.png" class="card-img-top" alt="Edificio de oficinas">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Edificio Corporativo Central</h5>
+                            <p class="card-text text-muted">Mantenimiento correctivo y predictivo de Chillers y torres de enfriamiento central.</p>
+                            <span class="badge bg-danger">Mantenimiento Predictivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm proyecto-card">
+                        <img src="images/viva envigado.png" class="card-img-top" alt="Interior de una residencia">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Portafolio Residencial VIP</h5>
+                            <p class="card-text text-muted">Servicio anual de limpieza y ajuste de 10 sistemas Mini-Split de diversas propiedades.</p>
+                            <span class="badge bg-info">Mini-Split Anual</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="search.js"></script>
+<a 
+    href="https://wa.me/573144794045?text=Hola%2C%20me%20gustaría%20solicitar%20una%20cotización%20de%20climatización." 
+    class="whatsapp-float" 
+    target="_blank"
+>
+    <i class="bi bi-whatsapp"></i>
+</a>
+</body>
+</html>

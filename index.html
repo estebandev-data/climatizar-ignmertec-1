@@ -3,99 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLIMATIZARINGMERTEC LDTA</title>
-
+    <title>CLIMATIZARINGMERTEC LDTA INGENIERÍA TERMICA Y MECANICA</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
     
-    <style>
-        /* Estilos originales del Carrusel Principal */
-        .carousel-item {
-            height: 70vh; /* ¡PUNTO Y COMA AÑADIDO! */
-            min-height: 400px;
-        }
-
-        .carousel-caption-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Este estilo asegura que los iconos del carrusel sean visibles */
-        .icon-feature i {
-            font-size: 3rem;
-            color: #007bff; /* Color primario de Bootstrap por defecto */
-        }
-
-        /* Estilos específicos de Proyectos */
-        .project-card {
-            transition: box-shadow 0.3s ease;
-            cursor: default;
-            border-bottom: 4px solid var(--bs-primary);
-        }
-        .project-card:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-        }
-        .project-image-thumb {
-            height: 250px; 
-            object-fit: cover;
-        }
-        .project-details {
-            border-top: 1px dashed #ddd;
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css"> 
+    
 </head>
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\LOGO CLIMATIZAR MEDIANO.png" alt="Logo de la Empresa" height="85">
-                </a>
-                <div class="mx-auto d-none d-lg-block">
-                    <form class="d-flex search-form">
-                        <input class="form-control" type="search" placeholder="Busca un servicio, ej: Mantenimiento" aria-label="Search">
-                        <button class="btn" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
-                </div>
-                <div class="d-flex align-items-center ms-auto">
-                    <a href="#" class="nav-link mx-2" title="Ubicación"><i class="bi bi-geo-alt-fill fs-5"></i> <span class="d-none d-md-inline">Colombia</span></a>
-                    <a href="#" class="nav-link mx-2" title="Llámanos"><i class="bi bi-telephone-fill fs-5"></i></a>
-                    <a href="#" class="nav-link mx-2" title="Información"><i class="bi bi-info-circle-fill fs-5"></i></a>
-                </div>
-            </div>
-        </nav>
+        <div class="container d-flex justify-content-between align-items-center py-4">
+    <a class="navbar-brand" href="index.html">
+        <img src="images\LOGO CLIMATIZAR MEDIANO.png" alt="Climatizar" style="height: 80px;"> 
+    </a>
+
+    <form class="d-none d-md-flex mx-auto" role="search" onsubmit="performSearch(event)" style="max-width: 500px;">
+    <input class="form-control me-2" type="search" placeholder="Busca un servicio, ej: Mantenimiento" aria-label="Search" id="searchInput">
+    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+</form>
+
+    <div class="d-flex align-items-center">
+        <span class="text-muted me-3 d-none d-lg-inline"><i class="bi bi-geo-alt-fill text-primary me-1"></i> Colombia</span>
+        <a href="tel:+5712345678" class="text-dark me-2"><i class="bi bi-telephone-fill"></i></a>
+        <a href="contacto.html" class="text-dark"><i class="bi bi-info-circle-fill"></i></a>
+    </div>
+</div>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
              <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link fw-bold active" href="#">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#servicios">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#nosotros">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#proyectos">Proyectos</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#diseño">Diseño</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#roi">ROI</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#videos">Videos</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#contacto">Contacto</a></li>
-                    </ul>
+                    <ul class="navbar-nav nav mx-auto">
+    <li class="nav-item">
+        <a class="nav-link fw-bold active" aria-current="page" href="index.html">Inicio</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link fw-bold" href="nosotros.html">Nosotros</a> 
+    </li>
+    <li class="nav-item">
+        <a class="nav-link fw-bold" href="servicios.html">Servicios</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link fw-bold" href="proyectos.html">Proyectos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link fw-bold" href="diseno.html">Diseño</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link fw-bold" href="contacto.html">Contacto</a>
+    </li>
+</ul>
                 </div>
             </div>
         </nav>
@@ -119,7 +83,7 @@
                     </div>
                 </div>
 
-                <div class="carousel-item" style="background: url('https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') no-repeat center center; background-size: cover;">
+                <div class="carousel-item" style="background: url('https://images.pexels.com/photos/7078666/pexels-photo-7078666.jpeg?_gl=1*lwkt0h*_ga*MTk2ODQ1MjE3My4xNzU5OTQwODUx*_ga_8JE65Q40S6*czE3NjA5NzYwNzIkbzkkZzEkdDE3NjA5NzYxMDQkajI4JGwwJGgw') no-repeat center center; background-size: cover;">
                     <div class="carousel-caption-overlay text-white text-center">
                            <div class="container">
                             <h2 class="display-4 fw-bold">INGENIERÍA Y TECNOLOGÍA DE PUNTA</h2>
@@ -154,74 +118,18 @@
             </button>
         </section>
 
-        <section id="servicios" class="py-5 bg-light">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Nuestros Servicios</h2>
-                    <p class="lead text-muted">Soluciones integrales para todas sus necesidades de HVAC.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="service-box-horizontal">
-                            <div class="service-icon">
-                                <i class="bi bi-building"></i>
-                            </div>
-                            <div class="service-content">
-                                <h5 class="fw-bold">HVAC CLIMATIZARINGMERTEC</h5>
-                                <p class="mb-0">Venta, Instalación y Mantenimiento de aires acondiconados.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-box-horizontal">
-                            <div class="service-icon">
-                                <i class="bi bi-people-fill"></i>
-                            </div>
-                            <div class="service-content">
-                                <h5 class="fw-bold">Consultoría e Interventoría</h5>
-                                <p class="mb-0">Asesoría experta para la planificación y ejecución de sus proyectos de climatización.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-box-horizontal">
-                            <div class="service-icon">
-                                <i class="bi bi-industry"></i>
-                            </div>
-                            <div class="service-content">
-                                <h5 class="fw-bold">Sistema de Ducteria Industrial</h5>
-                                <p class="mb-0">Sistemas robustos y eficientes diseñados para entornos industriales de alta demanda.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-box-horizontal">
-                            <div class="service-icon">
-                                <i class="bi bi-wind"></i>
-                            </div>
-                            <div class="service-content">
-                                <h5 class="fw-bold">Diseño y Ventilación Mecánica</h5>
-                                <p class="mb-0">Diseño de sistemas de aire acondicionado y ventilación mecánica para calidad de aire óptima.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="nosotros" class="py-5">
             <div class="container">
                 <div class="row align-items-center g-5 flex-row-reverse"> 
-                    
                     <div class="col-lg-6 col-xl-7">
-                        <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\CLIMATIZAR TORRE 33.png" class="img-fluid rounded shadow-lg" alt="Edificio corporativo de Carrier">
+                        <img src="images\CLIMATIZAR TORRE 33.png" class="img-fluid rounded shadow-lg" alt="Edificio corporativo de Carrier">
                     </div>
 
                     <div class="col-lg-6 col-xl-5 me-auto">
                         <h2 class="fw-bold">Sobre Nosotros</h2>
                         <p class="text-muted text-justify">
-                            CLIMATIZAR INGMERTEC es una empresa fundada  en Villavicencio en el año 2001, dedicada al diseño, montaje y comercialización de sistemas de aire acondicionado y ventilación industrial
-
+                            CLIMATIZAR INGMERTEC LDTA (CLIMATIZAR),  tiene sus oficinas centrales en Villavicencio, Meta. CLIMATIZAR abrió sus puertas en septiembre de 2001.
                         </p>
                         <p class="text-muted text-justify">
                             Ofrecemos soluciones en aire acondicionado, Ventilación, refrigeración para aplicaciones tanto residenciales como comerciales ligeras y comerciales. Nuestra oferta incluye equipos, controles, piezas, insumos y servicio. Nuestro experimentado personal ha ayudado a mantener fresca la temperatura en muchos proyectos importantes en Colombia.
@@ -229,241 +137,210 @@
                         <p class="text-muted mt-4">
                             Nuestra oficina en Villavicencio, Meta están situadas en: calle 33 #33-34,Villavicencio, Meta Colombia.
                         </p>
-                        <a href="#" class="btn btn-primary mt-3">Ver Contacto</a>
+                        <a href="#contacto" class="btn btn-primary mt-3">Contactanos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="servicios" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Nuestros Servicios</h2>
+                    <p class="lead text-muted">Soluciones integrales para todas sus necesidades de HVAC.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="service-box-horizontal d-flex align-items-start p-3 border rounded bg-white shadow-sm">
+                            <i class="bi bi-building fs-1 me-3 text-primary"></i>
+                            <div>
+                                <h5 class="fw-bold">HVAC CLIMATIZARINGMERTEC</h5>
+                                <p class="mb-0 text-muted">Venta, Instalación y Mantenimiento de aires acondiconados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="service-box-horizontal d-flex align-items-start p-3 border rounded bg-white shadow-sm">
+                            <i class="bi bi-people-fill fs-1 me-3 text-success"></i>
+                            <div>
+                                <h5 class="fw-bold">Consultoría e Interventoría</h5>
+                                <p class="mb-0 text-muted">Asesoría experta para la planificación y ejecución de sus proyectos de climatización.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="service-box-horizontal d-flex align-items-start p-3 border rounded bg-white shadow-sm">
+                            <i class="bi bi-industry fs-1 me-3 text-danger"></i>
+                            <div>
+                                <h5 class="fw-bold">Sistema de Ducteria Industrial</h5>
+                                <p class="mb-0 text-muted">Sistemas robustos y eficientes diseñados para entornos industriales de alta demanda.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="service-box-horizontal d-flex align-items-start p-3 border rounded bg-white shadow-sm">
+                            <i class="bi bi-wind fs-1 me-3 text-warning"></i>
+                            <div>
+                                <h5 class="fw-bold">Diseño y Ventilación Mecánica</h5>
+                                <p class="mb-0 text-muted">Diseño de sistemas de aire acondicionado y ventilación mecánica para calidad de aire óptima.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
+        <hr class="my-5">
+
         <section id="proyectos" class="py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold">Proyectos Destacados</h2>
-                    <p class="lead text-muted">Soluciones completas de climatización industrial, comercial y residencial.</p>
+                    <p class="lead text-muted">Desplácese horizontalmente para ver nuestros logros más recientes.</p>
                 </div>
 
-                <div class="row g-4 justify-content-center">
+                <div class="horizontal-scroll-container">
                     
-                    <div class="col-lg-4 col-md-6">
+                    <div class="scroll-card">
                         <div class="card h-100 project-card shadow-sm border-0">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\edificio hotel estelar.png" class="card-img-top project-image-thumb" alt="Climatización de Torre Ejecutiva">
+                            <img src="images\edificio hotel estelar.png" class="card-img-top project-image-thumb" alt="Climatización de Torre Ejecutiva">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold text-primary">Hotel Estelar - Climatización </h5>
-                                <p class="card-text text-muted flex-grow-1">**Alcance:** Mantenimiento preventivo anual de equipos de aire acondicionados.</p>
-                                
+                                <h5 class="card-title fw-bold text-primary">Hotel Estelar - Climatización</h5>
+                                <p class="card-text text-muted flex-grow-1">**Alcance:** Mantenimiento preventivo anual de equipos de aire acondiconados.</p>
                                 <div class="project-details mt-auto">
                                     <h6 class="fw-bold mb-1">Detalles Clave:</h6>
                                     <small class="text-muted">
-                                         Logramos un **35% de ahorro energético** y control zonal avanzado en 80 Habitaciones.
+                                        Logramos un **35% de ahorro energético** y control zonal avanzado en 80 Habitaciones.
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="scroll-card">
                         <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-success) !important;">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\casino climatizar.png" class="card-img-top project-image-thumb" alt="Confort en Casa Familiar">
+                            <img src="images\casino climatizar.png" class="card-img-top project-image-thumb" alt="Confort en Casa Familiar">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title fw-bold text-success">Casino Hotel Estelar - Confort Silencioso</h5>
                                 <p class="card-text text-muted flex-grow-1">**Alcance:** Solución a problemas de ruido y humedad, instalando un sistema de aire acondicionado silencioso.</p>
-                                
                                 <div class="project-details mt-auto">
                                     <h6 class="fw-bold mb-1">Detalles Clave:</h6>
                                     <small class="text-muted">
-                                        Instalación de Mini-Splits Inverter de **bajo ruido y alta eficiencia energética**. El hogar ahora disfruta de un ambiente perfectamente fresco y silencioso.
+                                        Instalación de Mini-Splits Inverter de **bajo ruido y alta eficiencia energética**. 
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-4 col-md-6">
+                    <div class="scroll-card">
                         <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-danger) !important;">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\CLIMATIZAR TORRE 33.png" class="card-img-top project-image-thumb" alt="Instalación de Chillers Farmacéuticos">
+                            <img src="images\CLIMATIZAR TORRE 33.png" class="card-img-top project-image-thumb" alt="Instalación de Chillers Farmacéuticos">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title fw-bold text-danger">Salud Total - Torre 33</h5>
                                 <p class="card-text text-muted flex-grow-1">**Alcance:** Instalación de tuberia, ducteria, aire acondicionado para áreas de Salud con temperatura controlada.</p>
-                                
                                 <div class="project-details mt-auto">
                                     <h6 class="fw-bold mb-1">Detalles Clave:</h6>
                                     <small class="text-muted">
-                                        tuberia metalica. Mantiene una precisión de **$\pm 0.5^\circ$ C** esencial para el cumplimiento de normativas sanitarias.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-        </section>
-        <hr class="my-5"> 
-
-        <section id="diseño" class="py-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Diseño y Modelación BIM</h2>
-                    <p class="lead text-muted">La inversión inteligente comienza con la ingeniería: Planos, modelos 3D y simulaciones de eficiencia.</p>
-                </div>
-
-                <div class="row g-4 justify-content-center">
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-info) !important;">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\plano hospital san juan de dios.png" class="card-img-top project-image-thumb" alt="Modelo BIM de Oficina">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold text-info">Modelación BIM - Complejo de Oficinas</h5>
-                                <p class="card-text text-muted flex-grow-1">**Objetivo:** Diseño de un sistema VRF de alto rendimiento con análisis de carga térmica completo.</p>
-                                
-                                <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Entregable Clave:</h6>
-                                    <small class="text-muted">
-                                        Creación de **Planos As-Built** y un modelo de simulación que predijo un **20% de ahorro** en costos operativos.
+                                        Mantiene una precisión de **$\pm 0.5^\circ$ C** esencial para el cumplimiento de normativas sanitarias.
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="scroll-card">
                         <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-warning) !important;">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\plano AUTOCAD 2.png" class="card-img-top project-image-thumb" alt="Diseño de ductería Industrial">
+                            <img src="images\FOTOS-CLIMATIZAR-M.jpeg" class="card-img-top project-image-thumb" alt="Nuevo Proyecto Comercial">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold text-warning">Plano Detallado - Ventilación de Bodega</h5>
-                                <p class="card-text text-muted flex-grow-1">**Objetivo:** Diseñar un sistema de ventilación mecánica que cumpla con normativas de calidad de aire y control de humos.</p>
-                                
+                                <h5 class="card-title fw-bold text-warning">Centro Comercial - Unidades Centrales</h5>
+                                <p class="card-text text-muted flex-grow-1">**Alcance:** Reemplazo de unidades tipo paquete en azotea para mejorar la eficiencia del centro comercial.</p>
                                 <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Entregable Clave:</h6>
+                                    <h6 class="fw-bold mb-1">Detalles Clave:</h6>
                                     <small class="text-muted">
-                                        Planos de fabricación y montaje de ductería de alta resistencia, garantizando la **renovación de aire cada 15 minutos**.
+                                        Actualización de 5 unidades, resultando en una reducción del **ruido externo del 45%**.
                                     </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-secondary) !important;">
-                            <img src="c:\Users\juanc\OneDrive\Escritorio\pagina web climatizar\images\plano AUTOCAD 3.png" class="card-img-top project-image-thumb" alt="Modelación 3D de Chiller">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold text-secondary">Renderizado 3D - Sala de Máquinas</h5>
-                                <p class="card-text text-muted flex-grow-1">**Objetivo:** Modelar la integración de un nuevo Chiller Modular dentro de una sala de máquinas existente con espacio limitado.</p>
-                                
-                                <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Entregable Clave:</h6>
-                                    <small class="text-muted">
-                                        Render 3D con dimensiones exactas que permitió a la constructora verificar la **viabilidad de la instalación** antes de la compra del equipo.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-<hr class="my-5"> 
-
-        <section id="roi" class="py-5 bg-light">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Retorno de Inversión (ROI) en Climatización</h2>
-                    <p class="lead text-muted">Su sistema HVAC es una inversión estratégica. Le ayudamos a medir la rentabilidad de su confort.</p>
-                </div>
-
-                <div class="row g-4 justify-content-center">
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-success) !important;">
-                            <div class="card-body d-flex flex-column text-center pt-4">
-                                <i class="bi bi-graph-up display-3 text-success mb-3"></i>
-                                <h5 class="card-title fw-bold text-success">Cálculo de Ahorro Energético Anual</h5>
-                                <p class="card-text text-muted flex-grow-1">Determinamos el **ROI** de la inversión inicial en nuevos equipos (VRF, Inverter) en función de la reducción del consumo eléctrico.</p>
-                                
-                                <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Métrica Clave:</h6>
-                                    <small class="text-muted">
-                                        Nuestros sistemas logran un **ahorro promedio del 30%** en la factura eléctrica, amortizando la inversión en 3-5 años.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-primary) !important;">
-                            <div class="card-body d-flex flex-column text-center pt-4">
-                                <i class="bi bi-shield-lock-fill display-3 text-primary mb-3"></i>
-                                <h5 class="card-title fw-bold text-primary">Extensión de la Vida Útil de Equipos</h5>
-                                <p class="card-text text-muted flex-grow-1">Un plan de **Mantenimiento Predictivo** evita fallas catastróficas, costosas reparaciones de emergencia y reemplazos prematuros de Chillers o Unidades Manejadoras.</p>
-                                
-                                <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Métrica Clave:</h6>
-                                    <small class="text-muted">
-                                        El mantenimiento regular **extiende la vida útil** de su equipo central hasta en un 40%.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-info) !important;">
-                            <div class="card-body d-flex flex-column text-center pt-4">
-                                <i class="bi bi-person-fill-check display-3 text-info mb-3"></i>
-                                <h5 class="card-title fw-bold text-info">Impacto en la Productividad y Salud</h5>
-                                <p class="card-text text-muted flex-grow-1">La calidad del aire interior (IAQ) y la temperatura controlada son factores directos que influyen en el enfoque, la salud y la reducción del ausentismo laboral.</p>
-                                
-                                <div class="project-details mt-auto">
-                                    <h6 class="fw-bold mb-1">Métrica Clave:</h6>
-                                    <small class="text-muted">
-                                        Estudios demuestran que el confort térmico incrementa el **rendimiento laboral hasta en un 12%**.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-5"> 
-
-        <section id="videos" class="py-5">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold text-primary">🎥 Videos de Ingeniería y Calidad</h2>
-                    <p class="lead text-muted">Vea el detalle de nuestra metodología y la calidad de nuestras instalaciones en acción.</p>
-                </div>
-
-                <div class="row g-4">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card shadow-sm h-100">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/2qX4x2-d_Hk" title="Video de Instalación VRF" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Instalación Sistema VRF - Time-Lapse</h5>
-                                <p class="card-text text-muted">Vea cómo nuestro equipo implementa un sistema de volumen de refrigerante variable (VRF) de principio a fin, optimizando tiempos y recursos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card shadow-sm h-100">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://youtube.com/shorts/F8-uVDxe60s?feature=share" title="Video de Mantenimiento Preventivo" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Tips de Mantenimiento: ¿Por qué es Vital?</h5>
-                                <p class="card-text text-muted">Explicación breve de la importancia de la limpieza de filtros y las revisiones periódicas para garantizar el ROI.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
+        
         <hr class="my-5"> 
 
-        <section id="contacto" class="py-5 bg-light">
+<section id="diseño" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Diseño y Modelación BIM</h2>
+            <p class="lead text-muted">Desplácese horizontalmente para ver nuestros modelos y planos de ingeniería.</p>
+        </div>
+
+        <div class="horizontal-scroll-container">
+            
+            <div class="scroll-card">
+                <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-info) !important;">
+                    <img src="images\plano AUTOCAD 1.png" class="card-img-top project-image-thumb" alt="Modelo BIM de Oficina">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-info">Modelación BIM - Complejo de Oficinas</h5>
+                        <p class="card-text text-muted flex-grow-1">**Objetivo:** Diseño de un sistema VRF de alto rendimiento con análisis de carga térmica completo.</p>
+                        
+                        <div class="project-details mt-auto">
+                            <h6 class="fw-bold mb-1">Entregable Clave:</h6>
+                            <small class="text-muted">
+                                Creación de **Planos As-Built** y un modelo de simulación que predijo un un **20% de ahorro** en costos operativos.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-warning) !important;">
+                    <img src="images\plano AUTOCAD 2.png" class="card-img-top project-image-thumb" alt="Diseño de ductería Industrial">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-warning">Plano Detallado - Ventilación de Bodega</h5>
+                        <p class="card-text text-muted flex-grow-1">**Objetivo:** Diseñar un sistema de ventilación mecánica que cumpla con normativas de calidad de aire y control de humos.</p>
+                        
+                        <div class="project-details mt-auto">
+                            <h6 class="fw-bold mb-1">Entregable Clave:</h6>
+                            <small class="text-muted">
+                                Planos de fabricación y montaje de ductería de alta resistencia, garantizando la **renovación de aire cada 15 minutos**.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-card">
+                <div class="card h-100 project-card shadow-sm border-0" style="border-bottom-color: var(--bs-secondary) !important;">
+                    <img src="images\plano AUTOCAD 3.png" class="card-img-top project-image-thumb" alt="Modelación 3D de Chiller">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-secondary">Renderizado 3D - Sala de Máquinas</h5>
+                        <p class="card-text text-muted flex-grow-1">**Objetivo:** Modelar la integración de un nuevo Chiller Modular dentro de una sala de máquinas existente con espacio limitado.</p>
+                        
+                        <div class="project-details mt-auto">
+                            <h6 class="fw-bold mb-1">Entregable Clave:</h6>
+                            <small class="text-muted">
+                                Render 3D con dimensiones exactas que permitió verificar la **viabilidad de la instalación**.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+</section>
+
+        <hr class="my-5"> 
+
+        <section id="contacto" class="py-5">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold">Hablemos de su Proyecto</h2>
@@ -474,7 +351,7 @@
                     
                     <div class="col-lg-6">
                         <h4 class="fw-bold mb-4 text-primary">Formulario Rápido</h4>
-                        <form action="tu_script_de_envio.php" method="POST">
+                        <form action="tu_script_de_envio.php" method="POST"> 
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Completo</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -508,15 +385,15 @@
 
                         <h5 class="fw-bold mt-5 mb-3">Encuéntrenos Aquí</h5>
                         <div class="ratio ratio-4x3 rounded shadow-lg">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15878.077202336336!2d-73.63784196162354!3d4.143224747781524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fe2d140000001%3A0x6b4c10a4e7f3d51!2sVillavicencio%2C%20Meta%2C%20Colombia!5e0!3m2!1sen!2sus!4v1660144800000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15878.077202336336!2d-73.63784196162354!3d4.143224747781524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fe2d140000001%3A0x6b4c10a4e7f3d51!2sVillavicencio%2C%20Meta%2C%20Colombia!5e0!3m2!1sen!2sus!4v1660144800000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        </section>
 
-        </main>  
+    </main>
+    
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container text-center text-md-start">
             <div class="row">
@@ -526,38 +403,45 @@
                     <p>Tu aliado en climatización. Brindamos confort y calidad de aire para hogares y empresas en toda la región.</p>
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold text-primary">Servicios</h6>
+                    <h6 class="text-uppercase fw-bold text-primary">Enlaces Rápidos</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: var(--bs-primary); height: 2px"/>
-                    <p><a href="#servicios" class="text-white-50 text-decoration-none">HVAC Comercial</a></p>
-                    <p><a href="#servicios" class="text-white-50 text-decoration-none">Consultoría</a></p>
-                    <p><a href="#servicios" class="text-white-50 text-decoration-none">Climatización Industrial</a></p>
+                    <p><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></p>
+                    <p><a href="#proyectos" class="text-white-50 text-decoration-none">Proyectos</a></p>
+                    <p><a href="#contacto" class="text-white-50 text-decoration-none">Contacto</a></p>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 class="text-uppercase fw-bold text-primary">Contacto</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: var(--bs-primary); height: 2px"/>
-                    <p><i class="bi bi-geo-alt-fill me-3"></i> Tu Dirección, Villavicencio, Colombia</p>
-                    <p><i class="bi bi-envelope-fill me-3"></i> info@tuempresa.com</p>
+                    <p><i class="bi bi-geo-alt-fill me-3"></i> Calle 33 #33-34, Villavicencio, Colombia</p>
+                    <p><i class="bi bi-envelope-fill me-3"></i> www.climatizar.com.co</p>
                     <p><i class="bi bi-telephone-fill me-3"></i> +57 300 123 4567</p>
                 </div>
             </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
             © 2025 Copyright:
-            <a class="text-white text-decoration-none fw-bold" href="#">TuEmpresa.com</a>
+            <a class="text-white text-decoration-none fw-bold" href="#">CLIMATIZAR INGMERTEC</a>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="search.js"></script>
     <script>
-        // SOLO MANTENEMOS EL JS NECESARIO PARA EL CARRUSEL PRINCIPAL DE LA PÁGINA
+        // Inicialización simple del carrusel.
         var myCarousel = document.querySelector('#main-slider')
         var carousel = new bootstrap.Carousel(myCarousel, {
           interval: 5000, 
           wrap: true
         });
-        
-        // El resto de la interactividad (navegación colapsable, pestañas) es manejada
-        // directamente por los atributos de Bootstrap en el HTML (data-bs-toggle).
     </script>
+
+    <a 
+    href="https://wa.me/573144794045?text=Hola%2C%20me%20gustaría%20solicitar%20una%20cotización%20de%20climatización." 
+    class="whatsapp-float" 
+    target="_blank"
+>
+    <i class="bi bi-whatsapp"></i>
+</a>
+    
 </body>
 </html>

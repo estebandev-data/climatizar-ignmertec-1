@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Climatizar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    </head>
+<body>
+
+<header>
+    <div class="container d-flex justify-content-between align-items-center py-4">
+    <a class="navbar-brand" href="index.html">
+        <img src="images\LOGO CLIMATIZAR MEDIANO.png" alt="Climatizar" style="height: 80px;"> 
+    </a>
+
+    <form class="d-none d-md-flex mx-auto" role="search" onsubmit="performSearch(event)" style="max-width: 500px;">
+    <input class="form-control me-2" type="search" placeholder="Busca un servicio, ej: Mantenimiento" aria-label="Search" id="searchInput">
+    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+</form>
+
+    <div class="d-flex align-items-center">
+        <span class="text-muted me-3 d-none d-lg-inline"><i class="bi bi-geo-alt-fill text-primary me-1"></i> Colombia</span>
+        <a href="tel:+573144794045" class="text-dark me-2"><i class="bi bi-telephone-fill"></i></a>
+        <a href="contacto.html" class="text-dark"><i class="bi bi-info-circle-fill"></i></a>
+    </div>
+</div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm border-top">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+            <ul class="navbar-nav nav">
+                <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="nosotros.html">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold active" aria-current="page" href="servicios.html">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="proyectos.html">Proyectos</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="diseno.html">Diseño</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header> 
+
+<section id="servicios-slider" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background: url('https://images.pexels.com/photos/5463587/pexels-photo-5463587.jpeg?_gl=1*18q1pa2*_ga*MTk2ODQ1MjE3My4xNzU5OTQwODUx*_ga_8JE65Q40S6*czE3NjExNjQzOTIkbzE0JGcxJHQxNzYxMTY2MjgwJGoyNiRsMCRoMA..') no-repeat center center; background-size: cover; min-height: 80vh;">
+            <div class="carousel-caption-overlay text-white text-center">
+                <div class="container">
+                    <h1 class="display-3 fw-bold text-shadow">Soluciones Integrales de Climatización</h1>
+                    <p class="lead mb-4 col-lg-8 mx-auto text-shadow">Desde la asesoría hasta el mantenimiento post-instalación, cubrimos cada etapa con excelencia.</p>
+                    <a href="#serviciosTabs" class="btn btn-primary btn-lg fw-bold">Ver nuestros servicios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <main class="container my-5">
+    
+    <h2 class="text-center display-4 fw-bold mb-3">Nuestros Servicios Climatizar</h2>
+    <p class="text-center lead mb-5 text-muted col-lg-8 mx-auto">Explora nuestras soluciones integrales diseñadas para garantizar el confort y la eficiencia en cualquier entorno.</p>
+
+    <ul class="nav nav-tabs nav-fill mb-4" id="serviciosTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active fw-bold" id="instalacion-tab" data-bs-toggle="tab" data-bs-target="#instalacion" type="button" role="tab" aria-controls="instalacion" aria-selected="true">Instalación y Montaje</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="mantenimiento-tab" data-bs-toggle="tab" data-bs-target="#mantenimiento" type="button" role="tab" aria-controls="mantenimiento" aria-selected="false">Mantenimiento HVAC</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="diseno-tab" data-bs-toggle="tab" data-bs-target="#diseno" type="button" role="tab" aria-controls="diseno" aria-selected="false">Asesoría y Diseño</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="venta-tab" data-bs-toggle="tab" data-bs-target="#venta" type="button" role="tab" aria-controls="venta" aria-selected="false">Venta de Equipos</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="serviciosTabsContent">
+
+        <div class="tab-pane fade show active p-4" id="instalacion" role="tabpanel" aria-labelledby="instalacion-tab">
+            <h3 class="display-6 fw-bold mb-4 text-primary">Instalación de Maquinas Industriales</h3>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p class="lead">Nos especializamos en la instalación de sistemas VRF/VRV, Chillers, Unidades paquete y equipos Mini Split de marcas líderes, garantizando una ejecución limpia, rápida y bajo los más altos estándares de seguridad y eficiencia energética.</p>
+                    <h4 class="mt-4 fw-bold text-dark">Servicios Incluidos:</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Montaje estructural y de tubería certificado.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Puesta en marcha con certificación de eficiencia.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Garantía extendida en la mano de obra.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <img class="img-fluid rounded shadow-lg" src="images\FOTOS-CLIMATIZAR-M.jpeg" alt="Instalación de tuberías de aire acondicionado">
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane fade p-4" id="mantenimiento" role="tabpanel" aria-labelledby="mantenimiento-tab">
+            <h3 class="display-6 fw-bold mb-4 text-primary">Mantenimiento Preventivo y Correctivo</h3>
+            <div class="row align-items-center">
+                <div class="col-md-5 order-md-2">
+                    <img class="img-fluid rounded shadow-lg" src="images/mantenimiento preventivo.jpg" alt="Técnico realizando mantenimiento en equipo HVAC">
+                </div>
+                <div class="col-md-7 order-md-1">
+                    <p class="lead">Un plan de mantenimiento adecuado previene fallas costosas, optimiza el consumo eléctrico y asegura la calidad del aire. Ofrecemos contratos flexibles para ambientes residenciales, comerciales e industriales.</p>
+                    <h4 class="mt-4 fw-bold text-dark">Nuestras Ventajas:</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Limpieza profunda de serpentines y filtros.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Chequeo de presión de refrigerante y verificación eléctrica.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Respuesta rápida para fallas críticas (Servicio Correctivo).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane fade p-4" id="diseno" role="tabpanel" aria-labelledby="diseno-tab">
+            <h3 class="display-6 fw-bold mb-4 text-primary">Ingeniería para la Máxima Eficiencia</h3>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p class="lead">Antes de instalar, diseñamos. Nuestro equipo de ingenieros realiza estudios de carga térmica, dimensionamiento de equipos y planos de ductos para garantizar que el sistema cumpla con la normativa y tus necesidades específicas.</p>
+                    <h4 class="mt-4 fw-bold text-dark">Lo que Incluye la Asesoría:</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Estudio de Carga Térmica** preciso y detallado.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Planificación de Ductos optimizada para el flujo de aire.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Documentación técnica para construcción y licenciamiento.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <img class="img-fluid rounded shadow-lg" src="images/plano AUTOCAD 2.png" alt="Planos de ingeniería de climatización">
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade p-4" id="venta" role="tabpanel" aria-labelledby="venta-tab">
+    <h3 class="display-6 fw-bold mb-4 text-primary">Venta de Equipos y Repuestos Certificados</h3>
+    <div class="row align-items-center">
+        
+        <div class="col-md-6 order-md-2"> 
+            <img class="img-fluid rounded shadow-lg" src="images/venta de aires acondicionado equipos.jpg" alt="Inventario de equipos de climatización">
+        </div>
+        
+        <div class="col-md-6 order-md-1">
+            <p class="lead">Somos distribuidores autorizados de marcas líderes a nivel mundial. Garantizamos precios competitivos, repuestos originales y la mejor asesoría técnica para que adquieras el equipo ideal para tu proyecto.</p>
+            <h4 class="mt-4 fw-bold text-dark">Nuestro Catálogo:</h4>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Equipos Mini Split, VRF/VRV, y Chillers.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Repuestos originales y certificados.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Soporte y garantía directa del fabricante.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</main>
+    <footer>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="search.js"></script>
+    <a 
+    href="https://wa.me/573144794045?text=Hola%2C%20me%20gustaría%20solicitar%20una%20cotización%20de%20climatización." 
+    class="whatsapp-float" 
+    target="_blank"
+>
+    <i class="bi bi-whatsapp"></i>
+</a>
+</body>
+</html>
