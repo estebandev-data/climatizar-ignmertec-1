@@ -1,0 +1,1 @@
+Este repositorio contiene la interfaz de usuario (Frontend) de un sistema ERP/CRM diseñado para el sector de climatización. Actualmente, el backend se encuentra en fase de reestructuración y migración hacia una arquitectura independiente (o en la nube)
